@@ -1,6 +1,6 @@
-# vue-project
-
-This template should help get you started developing with Vue 3 in Vite.
+## Developer info
+  Nowshin Anber (https://github.com/nowshin-108)
+  Computer Science, Florida International University (Sophomore-2023)
 
 ## Recommended IDE Setup
 
