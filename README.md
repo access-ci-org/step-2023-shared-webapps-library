@@ -3,9 +3,9 @@
   Nowshin Anber (https://github.com/nowshin-108)
   Computer Science, Florida International University (Sophomore-2023)
 
-# vue-project
+# Replace API Key in index.html
 
-This template should help get you started developing with Vue 3 in Vite.
+Before running the code replace YOUR_API_KEY with an actual Google map API Key (Preferred Google Map API: https://console.cloud.google.com/apis/library/maps-backend.googleapis.com?project=access-project-nowshin) in index.html file on line 19
 
 ## Recommended IDE Setup
 
