@@ -31,22 +31,20 @@ fetch('https://operations-api.access-ci.org/wh2/cider/v1/access-allocated/')
     const timesheetData = projects
       .filter(project => project.latest_status_begin && project.latest_status_end)
       .map(project => {
-        // Calculate the percentage of the project time that has been completed
-        const beginDate = new Date(project.latest_status_begin);
+        // Calculate the time difference between the end date and current date
         const endDate = new Date(project.latest_status_end);
         const currentDate = new Date();
-        const totalTime = endDate.getTime() - beginDate.getTime();
-        const completedTime = currentDate.getTime() - beginDate.getTime();
-        const completedPercentage = completedTime / totalTime;
+        const timeDiff = endDate.getTime() - currentDate.getTime();
+        const diffDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convert to days
 
-        // Choose an element from the words array based on the completed percentage
+        // Choose an element from the words array based on the time difference
         let word;
-        if (completedPercentage >= 0.75) {
-          word = words[0];
-        } else if (completedPercentage >= 0.5) {
-          word = words[1];
+        if (diffDays <= 365) {
+          word = 'default';
+        } else if (diffDays <= 730) {
+          word = 'dolor';
         } else {
-          word = words[2];
+          word = 'lorem';
         }
 
         return [
