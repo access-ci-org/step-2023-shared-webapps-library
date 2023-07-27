@@ -13,7 +13,6 @@ function compareFn(a, b) {
   }
 }
 
-
 const words = ['lorem', 'dolor', 'default'];
 
 // Fetch data from the API
@@ -30,16 +29,34 @@ fetch('https://operations-api.access-ci.org/wh2/cider/v1/access-allocated/')
 
     // Create an array of timesheet data
     const timesheetData = projects
-  .filter(project => project.latest_status_begin && project.latest_status_end)
-  .map(project => {
-    const randomWord = words[Math.floor(Math.random() * words.length)]
-    return[
-    project.latest_status_begin.slice(5, 7) + '/' + project.latest_status_begin.slice(0, 4),
-    project.latest_status_end.slice(5, 7) + '/' + project.latest_status_end.slice(0, 4),
-    project.resource_descriptive_name,randomWord
-  ]
-  
-});
+      .filter(project => project.latest_status_begin && project.latest_status_end)
+      .map(project => {
+        // Calculate the percentage of the project time that has been completed
+        const beginDate = new Date(project.latest_status_begin);
+        const endDate = new Date(project.latest_status_end);
+        const currentDate = new Date();
+        const totalTime = endDate.getTime() - beginDate.getTime();
+        const completedTime = currentDate.getTime() - beginDate.getTime();
+        const completedPercentage = completedTime / totalTime;
+
+        // Choose an element from the words array based on the completed percentage
+        let word;
+        if (completedPercentage >= 0.75) {
+          word = words[0];
+        } else if (completedPercentage >= 0.5) {
+          word = words[1];
+        } else {
+          word = words[2];
+        }
+
+        return [
+          project.latest_status_begin.slice(5, 7) + '/' + project.latest_status_begin.slice(0, 4),
+          project.latest_status_end.slice(5, 7) + '/' + project.latest_status_end.slice(0, 4),
+          project.resource_descriptive_name,
+          word
+        ];
+      });
+
     timesheetData.sort(compareFn);
 
     // Initialize the timesheet
