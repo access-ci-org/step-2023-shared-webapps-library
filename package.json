@@ -10,8 +10,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "timesheet.js": "https://github.com/sbstjn/timesheet.js/",
     "vue": "^3.3.4",
+    "vue-cal": "^4.8.1",
     "vue-router": "^4.2.2",
     "vue3-google-map": "^0.15.0"
   },

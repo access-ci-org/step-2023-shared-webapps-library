@@ -5,12 +5,24 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Vite App</title>
+    <title>Infrastructure Production Timeline</title>
+    <link rel="stylesheet" href="bower_components/timesheet.js/dist/timesheet.min.css">
+    <link rel="stylesheet" href="bower_components/timesheet.js/dist/timesheet-white.min.css">
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
+    <div id="timesheet"></div>
+
     <script type="module" src="/src/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhz8xQwJzSD3LBpW1mLFtZ204MPp8b4h4&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHynZ4efPp-Qtt_YkUqB4blU3kLVrTE1s&callback=initMap"></script>
+    <script src="bower_components/timesheet.js/dist/timesheet.min.js"></script>
+    <script src="timesheet.js"></script>
     <script>
       console.log('Google Maps API loaded', google.maps);
     </script>
