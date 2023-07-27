@@ -79,6 +79,7 @@ export default {
     right:0;
     bottom:0;
     color:white;
+    background-color: black;
   }
 .event-popover {
   position:absolute;
