@@ -1,7 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import Map from './components/Map.vue'
 </script>
 
 <template>
@@ -12,11 +10,10 @@ import Map from './components/Map.vue'
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/location-map">Location Map</RouterLink>
         <RouterLink to="/news-calendar">News Calendar</RouterLink>
+        <RouterLink to="/timeline">Timeline</RouterLink>
       </nav>
     </div>
   </header>
-  <Map />
-
   <RouterView />
 </template>
 

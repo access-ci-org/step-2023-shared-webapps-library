@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "timesheet.js": "https://github.com/sbstjn/timesheet.js/",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2",
     "vue3-google-map": "^0.15.0"
