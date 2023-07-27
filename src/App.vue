@@ -11,6 +11,7 @@ import Map from './components/Map.vue'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/location-map">Location Map</RouterLink>
+        <RouterLink to="/news-calendar">News Calendar</RouterLink>
       </nav>
     </div>
   </header>
