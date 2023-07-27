@@ -105,9 +105,12 @@ p {
 }
 
 #map {
-  width: 800px;
-  height: 600px;
-  margin: 0px auto 0 auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   color: black;
+  z-index: 9999;
 }
 </style>

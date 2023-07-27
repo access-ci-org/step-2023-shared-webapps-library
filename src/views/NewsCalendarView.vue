@@ -100,7 +100,7 @@ export default {
 .vuecal {
   position: absolute;
   right: 0;
-  width: 800px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
 }
 </style>
