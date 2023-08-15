@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "preversion": "",
+    "preversion": "npm run test",
     "version": "npm run build && git add -f -A dist",
     "postversion": "git push && git push --tags"
   },
