@@ -1,6 +1,6 @@
 {
   "name": "vue-project",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -8,8 +8,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "preversion": "npm test",
-    "version": "npm run build && git add -f -A dist && git commit -m 'Adding the build'"
+    "preversion": "npm run build && git add -f -A dist && git commit -m 'Adding the build'",
+    "version": ""
   },
   "dependencies": {
     "axios": "^1.4.0",
