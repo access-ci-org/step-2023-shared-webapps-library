@@ -10,7 +10,7 @@
     "format": "prettier --write src/",
     "preversion": "npm test",
     "version": "npm run build && git add -f -A dist && git commit -m 'Adding the build'",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "axios": "^1.4.0",
