@@ -33,3 +33,22 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Release
+
+This is to be executed based on the number of changes the particular release carries. 
+The execution of the command will build the project assets, commit, tag and push to the github. And then github publishes the assets to github.io.
+
+[https://access-ci-org.github.io/step-2023-shared-webapps-library/dist/#/](https://access-ci-org.github.io/step-2023-shared-webapps-library/dist/#/)
+
+```sh
+npm run patch
+```
+or 
+```sh
+npm run minor
+```
+or
+```sh
+npm run major
+```
