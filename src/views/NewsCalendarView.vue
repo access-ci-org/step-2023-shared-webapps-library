@@ -3,20 +3,22 @@
     <vue-cal 
       :events="events"
       @event-click="onEventClick">
-      <template #event-render="{ event }">
-        <div>
-          {{ event.title }}
-        </div>
-      </template>
     </vue-cal>
     
     <div class="event-popover" v-show="selectedEvent">
 
       <button @click="closePopover">X</button>
       <h2 v-if="selectedEvent">{{ selectedEvent.title }}</h2>
-      <p v-if="selectedEvent">{{ selectedEvent.Start }} - {{ selectedEvent.End }}</p>
-      <div v-if="selectedEvent" v-html="selectedEvent.Content"></div>
-
+      <div v-if="selectedEvent">{{ selectedEvent.start.toLocaleString() }} - {{ selectedEvent.end.toLocaleString() }}</div>
+      <p style="padding-top: 10px;" v-if="selectedEvent" v-html="selectedEvent.content"></p>
+      <small style="margin-top: 20px;" v-if="selectedEvent && selectedEvent.affectedResourceIds">
+        <strong>Affected resources:</strong>
+        <ul>
+          <li v-for="affectedResourceId in selectedEvent.affectedResourceIds" :key="affectedResourceId">
+            {{affectedResourceId}}
+          </li>
+        </ul>
+      </small>
     </div>
   </div>
 </template>
@@ -53,17 +55,21 @@ export default {
       );
       console.log(response.data);
       this.newsData = response.data.results;
-      this.events = this.newsData.map(news => ({
-        start: new Date(news.NewsStart),
-        end: new Date(news.NewsEnd),
-        title: news.Subject,
-        description: news.description,
-        Content: news.Content,
-        Start: new Date(news.NewsStart).toLocaleTimeString(),
-        End: new Date(news.NewsEnd).toLocaleTimeString(),
+      this.events = this.newsData.map(news => {
+        return {
+          start: new Date(news.OutageStart),
+          end: new Date(news.OutageEnd),
+          title: news.Subject,
+          content: news.Content,
+          affectedResourceIds: news.AffectedResources.map(({ResourceID}) => ResourceID)
+          // description: news.description,
+          // Content: news.Content,
+          // Start: new Date(news.NewsStart).toLocaleTimeString(),
+          // End: new Date(news.NewsEnd).toLocaleTimeString(),
 
-      }));
-      console.log(this.events);
+        };
+      });
+      console.log("Events : ", this.events);
     } catch (error) {
       console.error(error);
     }
